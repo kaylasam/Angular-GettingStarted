@@ -6,6 +6,8 @@ import { Component } from "@angular/core";
 })
 export class ProductListComponent {
     pageTitle: string = 'Product List';             // binds to the pageTitle property in the template using interpolation
+    imageWidth: number = 50;
+    imageMargin: number = 2;
     products: any[] = [                             // "any" used when we dont know/care what the property type is
         {
             "productId": 1,
