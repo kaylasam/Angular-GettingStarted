@@ -8,6 +8,7 @@ export class ProductListComponent {
     pageTitle: string = 'Product List';             // binds to the pageTitle property in the template using interpolation
     imageWidth: number = 50;
     imageMargin: number = 2;
+    showImage: boolean = false;                     //keeps track if images are shown in the UI
     products: any[] = [                             // "any" used when we dont know/care what the property type is
         {
             "productId": 1,
@@ -29,5 +30,9 @@ export class ProductListComponent {
             "starRating": 4.2,
             "imageUrl": "assets/images/garden_cart.png"
       }
-    ];                                
+    ];  
+    
+    toggleImage(): void {                          //sets showImage to the negation of the current showImage value
+        this.showImage = !this.showImage
+    }
 }
