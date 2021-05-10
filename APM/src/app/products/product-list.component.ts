@@ -5,6 +5,27 @@ import { Component } from "@angular/core";
     templateUrl: './product-list.component.html'
 })
 export class ProductListComponent {
-    pageTitle: string = 'Product List';             //binds to the pageTitle property in the template using interpolation
-
+    pageTitle: string = 'Product List';             // binds to the pageTitle property in the template using interpolation
+    products: any[] = [                             // "any" used when we dont know/care what the property type is
+        {
+            "productId": 1,
+            "productName": "Leaf Rake",
+            "productCode": "GDN-0011",
+            "releaseDate": "March 19, 2021",
+            "description": "Leaf rake with 48-inch wooden handle.",
+            "price": 19.95,
+            "starRating": 3.2,
+            "imageUrl": "assets/images/leaf_rake.png"
+      },
+      {
+            "productId": 2,
+            "productName": "Garden Cart",
+            "productCode": "GDN-0023",
+            "releaseDate": "March 18, 2021",
+            "description": "15 gallon capacity rolling garden cart",
+            "price": 32.99,
+            "starRating": 4.2,
+            "imageUrl": "assets/images/garden_cart.png"
+      }
+    ];                                
 }
