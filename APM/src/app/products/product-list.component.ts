@@ -9,6 +9,7 @@ export class ProductListComponent {
     imageWidth: number = 50;
     imageMargin: number = 2;
     showImage: boolean = false;                     //keeps track if images are shown in the UI
+    listFilter: string = 'cart';
     products: any[] = [                             // "any" used when we dont know/care what the property type is
         {
             "productId": 1,

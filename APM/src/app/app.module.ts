@@ -2,6 +2,7 @@
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './products/product-list.component';
@@ -12,7 +13,8 @@ import { ProductListComponent } from './products/product-list.component';
     ProductListComponent
   ],
   imports: [                // defines the external modules we want to have available to 
-    BrowserModule           // the components that belong to this module    
+    BrowserModule,          // the components that belong to this module 
+    FormsModule   
   ],
   bootstrap: [AppComponent] // defines startup component of the application
 })
