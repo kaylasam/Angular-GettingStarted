@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { IProduct } from "./product";
 
 @Component({
     selector: 'pm-products',
@@ -10,7 +11,7 @@ export class ProductListComponent {
     imageMargin: number = 2;
     showImage: boolean = false;                     //keeps track if images are shown in the UI
     listFilter: string = 'cart';
-    products: any[] = [                             // "any" used when we dont know/care what the property type is
+    products: IProduct[] = [                             // "any" used when we dont know/care what the property type is
         {
             "productId": 1,
             "productName": "Leaf Rake",
