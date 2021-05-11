@@ -50,6 +50,6 @@ export class ProductListComponent implements OnInit{
     }
 
     ngOnInit(): void {
-        this.listFilter = 'cart';
+        this.listFilter = 'cart';                   //sets default value for listFilter
     }
 }
