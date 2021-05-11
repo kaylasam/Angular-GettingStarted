@@ -11,7 +11,17 @@ export class ProductListComponent implements OnInit{
     imageWidth: number = 50;
     imageMargin: number = 2;
     showImage: boolean = false;                     //keeps track if images are shown in the UI
-    listFilter: string = 'cart';
+    
+    // updates value in listFilter variable when user changes it
+    private _listFilter: string = ' ';
+    get listFilter(): string {
+        return this._listFilter;
+    }
+    set listFilter(value: string){
+        this._listFilter = value;
+        console.log('In setter: ', value);
+    }
+
     products: IProduct[] = [                             // "any" used when we dont know/care what the property type is
         {
             "productId": 1,
@@ -40,6 +50,6 @@ export class ProductListComponent implements OnInit{
     }
 
     ngOnInit(): void {
-        console.log('In OnInit');
+        this.listFilter = 'cart';
     }
 }
