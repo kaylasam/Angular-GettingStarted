@@ -42,9 +42,9 @@
                                 [style.margin.px] = 'imageMargin'>  <!--displays image, image label, and adjusts image size and margin-->                              
                       </td>                                         <!--td = table data-->
                       <td>{{product.productName}}</td>
-                      <td>{{product.productCode}}</td>
+                      <td>{{product.productCode | lowercase }}</td>
                       <td>{{product.releaseDate}}</td>
-                      <td>{{product.price}}</td>
+                      <td>{{product.price | currency}}</td>
                       <td>{{product.starRating}}</td>
                   </tr>
                 </tbody>
