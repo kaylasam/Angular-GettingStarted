@@ -20,7 +20,10 @@ export class ProductListComponent implements OnInit{
     set listFilter(value: string){
         this._listFilter = value;
         console.log('In setter: ', value);
+        this.filteredProducts = this.performFilter(value);      //assigns filtered products to filteredProducts
     }
+
+    filteredProducts: IProduct[] = [];
 
     products: IProduct[] = [                             // "any" used when we dont know/care what the property type is
         {
@@ -45,6 +48,12 @@ export class ProductListComponent implements OnInit{
       }
     ];  
     
+    performFilter(filterBy: string): IProduct[] {       //function takes in filter string and returns array of products
+        filterBy = filterBy.toLocaleLowerCase();        //convert filter string to lowercase for easy comparison
+        return this.products.filter((product: IProduct) => 
+        product.productName.toLocaleLowerCase().includes(filterBy));
+    }
+
     toggleImage(): void {                          //sets showImage to the negation of the current showImage value
         this.showImage = !this.showImage
     }
