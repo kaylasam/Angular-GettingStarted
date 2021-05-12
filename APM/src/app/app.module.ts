@@ -7,12 +7,14 @@ import { FormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './products/product-list.component';
 import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
+import { StarComponent } from './shared/star.component';
 
 @NgModule({                 // defines class as an Angular module
   declarations: [           // declarations array defines what components belong to this module
     AppComponent,
     ProductListComponent, 
-    ConvertToSpacesPipe
+    ConvertToSpacesPipe,
+    StarComponent
   ],
   imports: [                // defines the external modules we want to have available to 
     BrowserModule,          // the components that belong to this module 
