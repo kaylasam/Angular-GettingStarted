@@ -9,13 +9,17 @@ import { ProductListComponent } from './products/product-list.component';
 import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
 import { StarComponent } from './shared/star.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductDetailComponent } from './products/product-detail.component';
+import { WelcomeComponent } from './home/welcome.component';
 
 @NgModule({                 // defines class as an Angular module
   declarations: [           // declarations array defines what components belong to this module
     AppComponent,
     ProductListComponent, 
     ConvertToSpacesPipe,
-    StarComponent
+    StarComponent,
+    ProductDetailComponent,
+    WelcomeComponent
   ],
   imports: [                // defines the external modules we want to have available to 
     BrowserModule,          // the components that belong to this module 
