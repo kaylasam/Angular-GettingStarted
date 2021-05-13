@@ -11,7 +11,7 @@ export class ProductService {
 
     private productUrl = 'api/products/products.json';          //url of the "web server" to send http requests
 
-    constructor(private http: HttpClient){}
+    constructor(private http: HttpClient){}         //constructors define dependencies (HTTP)
 
     getProducts(): Observable<IProduct[]>{
         return this.http.get<IProduct[]>(this.productUrl).pipe(
