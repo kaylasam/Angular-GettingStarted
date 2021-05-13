@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
 import { IProduct } from "./product";
 import { ProductService } from "./product.service";
 
@@ -7,12 +8,14 @@ import { ProductService } from "./product.service";
     templateUrl: './product-list.component.html',
     styleUrls: ['./product-list.component.css']     //can add more styles here
 })
-export class ProductListComponent implements OnInit{
+export class ProductListComponent implements OnInit, OnDestroy{
     pageTitle: string = 'Product List';             // binds to the pageTitle property in the template using interpolation
     imageWidth: number = 50;
     imageMargin: number = 2;
     showImage: boolean = false;                     //keeps track if images are shown in the UI
-    
+    errorMessage: string = ' ';
+    sub: Subscription | undefined;
+
     // updates value in listFilter variable when user changes it
     private _listFilter: string = ' ';
     get listFilter(): string {
@@ -40,8 +43,17 @@ export class ProductListComponent implements OnInit{
     }
 
     ngOnInit(): void {
-        this.products = this.productService.getProducts();
-        this.filteredProducts = this.products;
+        this.productService.getProducts().subscribe({
+            next: products => {
+                this.products = products;
+                this.filteredProducts = this.products;
+            },
+            error: err => this.errorMessage = err
+        });
+    }
+
+    ngOnDestroy(): void {
+        this.sub?.unsubscribe();
     }
     
     onRatingClicked(message: string): void {
