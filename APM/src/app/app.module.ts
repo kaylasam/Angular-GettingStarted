@@ -11,6 +11,7 @@ import { StarComponent } from './shared/star.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './products/product-detail.component';
 import { WelcomeComponent } from './home/welcome.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({                 // defines class as an Angular module
   declarations: [           // declarations array defines what components belong to this module
@@ -24,7 +25,14 @@ import { WelcomeComponent } from './home/welcome.component';
   imports: [                // defines the external modules we want to have available to 
     BrowserModule,          // the components that belong to this module 
     FormsModule,
-    HttpClientModule   
+    HttpClientModule,
+    RouterModule.forRoot([
+      { path: 'products', component: ProductListComponent },
+      { path: 'products/:id', component: ProductDetailComponent },
+      { path: 'welcome', component: WelcomeComponent },
+      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+      { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
+    ])   
   ],
   bootstrap: [AppComponent] // defines startup component of the application
 })
